@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-m = 10
+m = 1000
 dt = 0.0001
 def get_int(): ## function gets the input variables
     y0 = float(input("Intial displacement:  "))
@@ -71,6 +71,7 @@ def plot_energy(t,en,kin,pot): ## function that plots the total energy vs time
 inti = get_int()
 
 ##print(force(inti[0],inti[1],inti[2]))
+<<<<<<< HEAD
 var = dynamics(inti[0],inti[1],inti[2],inti[3])
 en_var = energy(inti[2],var[1],var[2])
 
@@ -78,6 +79,14 @@ en_var = energy(inti[2],var[1],var[2])
    # f.write("time,x,y\n")
    # for i,j,k in zip(var[0],var[1],var[2]):
     #    f.write(f"{i},{j},{k}\n")
+=======
+var = dynamics(inti[0],inti[1],inti[2])
+en_var = energy(var[0],var[2],var[3],var[4])
+
+with open("comp/cow_output.txt","w") as f:
+    f.write("time,x,y\n")
+    for i,j,k in zip(var[0],var[1],var[2]):
+        f.write(f"{i},{j},{k}\n")
 plot_energy(var[0],en_var[0],en_var[1],en_var[2])
 plot_dyn(var[0],var[1],var[2])
 
